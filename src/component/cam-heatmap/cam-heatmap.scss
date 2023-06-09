@@ -1,0 +1,26 @@
+.cam-heatmap-container {
+    display: flex;
+    position: 'relative';
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.canvas-stack-up {
+    position: 'absolute';
+}
+
+.full-screen {
+    position: relative;
+}
+
+.canvas-1, .canvas-2 {
+    width: 640px;
+    height: 360px;
+    transition: all 0.5s ease;
+}
+
+.full-screen .canvas-1, .full-screen .canvas-2 {
+    width: 1040px;
+    height: 585px;
+} 

@@ -1,0 +1,385 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+section {
+    z-index: 1;
+}
+
+.header {
+    margin: 40px 0;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: auto;
+    justify-content: center;
+
+    .hide {
+        opacity: 0;
+    }
+}
+
+.main-content {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 150px;
+    flex-direction: column;
+}
+
+
+
+.cam-section {
+    padding-bottom: 40px;
+    height: 600px;
+    display: flex;
+    margin: 0 90px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    .container-stream {
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        margin-left: 80px;
+        transition: all 0.5s ease;
+        left: 0;
+    }
+
+    .content {
+        width: 400px;
+        background-color: #7d7d7d4e;
+        padding: 40px;
+        border-radius: 10px;
+        margin-right: 50px;
+        position: absolute;
+        right: 0;
+    }
+    
+    .heading-cam {
+        margin: 0;
+        padding: 0;
+        align-self: center;
+        margin-bottom: 40px;
+    }
+    
+    .cam-container {
+        flex: 0.7;
+    }
+
+    .button-control-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+
+        .sub-container {
+            display: flex;
+            gap: 150px;
+            align-self: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-top {
+            position: absolute;
+            top: -45px;
+            margin-left: 10px;
+        }
+
+        .btn-left {
+            position: absolute;
+            left: -55px;
+        }
+
+        .btn-right {
+            position: absolute;
+            right: -55px;
+        }
+
+        .btn-bottom {
+            position: absolute;
+            bottom: -45px;
+            margin-left: 10px;
+        }
+    }
+
+    .btn-control {
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 50px;
+        transition: all 0.2s ease;
+        height: 40px;
+    }
+    
+    .btn-control.btn-1 {
+        background-color: #4F0003;
+    }
+    .btn-control.btn-1:hover {
+        background-color: #920106;
+    }
+    
+    .btn-control.btn-2 {
+        background-color: #feae3e;
+    }
+    .btn-control.btn-2:hover {
+        background-color: #cd8d32;
+    }
+}
+
+.graph {
+    padding-bottom: 40px;
+    height: 600px;
+    display: flex;
+    margin: 0 90px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #202020;
+    border-radius: 20px;
+    padding: 0 50px;
+    position: relative;
+
+    .content {
+        width: 400px;
+        background-color: #ffffff4e;
+        padding: 40px;
+        border-radius: 10px;
+        color: #fff;
+        box-shadow: 2px 2px 10px #8e8e8e;
+    }
+
+    .stream-container {
+        position: absolute;
+        width: 350px;
+        align-self: flex-start;
+        left: 20px;
+        transition: all 0.4s ease;
+    }
+    
+    .histogram-container {
+        position: absolute;
+        width: 350px;
+        align-self: flex-end;
+        bottom: 20px;
+        right: 20px;
+        transition: all 0.4s ease;
+    }
+    .chart-container {
+        right: 50px;
+        top: 100px;
+        position: absolute;
+    }
+}
+
+.chart-container {
+    width: 600px;
+    height: 400px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.stream-container {
+    width: 350px;
+    align-self: flex-start;
+}
+
+.histogram-container {
+    width: 350px;
+    align-self: flex-end;
+}
+
+.mix-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+    height: 600px;
+    margin: 0 90px;
+    gap: 50px;
+
+    .heading-mix {
+        padding: 0;
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+    .mix {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 50px;
+        gap: 40px;
+    
+        .chart-container {
+            align-items: center;
+            background-color: unset;
+            padding: 0;
+            position: relative;
+        }
+    
+        .stream-container {
+            align-self: unset;
+        }
+    
+        .histogram-container {
+            align-self: unset;
+        }
+    }
+}
+
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 26, 26, 0.723);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    overflow-y: auto;
+}
+
+.overlay.show {
+    z-index: 9999;
+    opacity: 1;
+}
+
+section.cam-section.show {
+    z-index: unset;
+}
+
+section.cam-section.show .container-stream{
+    z-index: 99999;
+    position: relative;
+    left: 90px;
+}
+
+.btn-full-size {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: 3px solid #f8f8f8;
+    transition: all 0.2s ease;
+    background-color: #f8f8f8;
+    width: 200px;
+    z-index: unset;
+}
+
+.btn-full-size:hover {
+    outline-offset: 3px;
+    letter-spacing: 1px;
+}
+
+.btn-cam {
+    position: absolute;
+    z-index: 99999;
+    right: 0;
+    top: -90px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-heat-map {
+    left: 0;
+    top: -10px;
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+.btn-volume {
+    left: 0;
+    top: 50px;
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+.cam-section.show .btn-cam, .graph.show .btn-cam {
+    display: block;
+    opacity: 1;
+}
+
+
+.graph .btn-cam {
+    left: 50px;
+    top: 30px;
+}
+
+section.graph.show{
+    z-index: unset;
+}
+
+.chart-container.show, section.mix-container.show {
+    z-index: 99999;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+.chart-container-main.show {
+    top: 100px;
+    right: 120px;
+    width: 1100px;  
+    height: 450px;
+}
+
+.bar-container {
+    position: absolute;
+    width: 400px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    left: 0;
+    bottom: 20px;
+}
+
+.graph.show .stream-container {
+    left: 400px;
+    width: 400px;
+}
+
+.graph.show .histogram-container{
+    position: absolute;
+    bottom: 20px;
+    right: 100px;
+    width: 400px;
+}
+
+.graph.show .bar-container {
+    opacity: 1;
+    left: 100px;
+}
+
+
+
+
+
